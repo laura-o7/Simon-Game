@@ -5,8 +5,8 @@ var started = false;
 var level = 0;
 
 // Key & click detection//
-$(document).keydown(function(){
-  if (!started){
+$(document).keydown(function() {
+  if (!started) {
     $("#level-title").text("Level " + level);
     nextSequence()
     started = true;
@@ -19,14 +19,14 @@ $(".btn").click(function() {
 
   playSound(userChosenColour);
   animatePress(userChosenColour);
-  checkAnswer(userClickedPattern.length-1);
+  checkAnswer(userClickedPattern.length - 1);
 });
 
-function checkAnswer (currentLevel){
+function checkAnswer(currentLevel) {
 
-  if (userClickedPattern[currentLevel] === gamePattern[currentLevel]){
+  if (userClickedPattern[currentLevel] === gamePattern[currentLevel]) {
     if (userClickedPattern.length === gamePattern.length) {
-      setTimeout(function(){
+      setTimeout(function() {
         nextSequence();
       }, 1000);
     }
@@ -35,7 +35,7 @@ function checkAnswer (currentLevel){
     playSound("wrong");
     $("body").addClass("game-over");
 
-    setTimeout (function(){
+    setTimeout(function() {
       $("body").removeClass("game-over");
     }, 200);
 
